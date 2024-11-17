@@ -1,0 +1,121 @@
+-- Create the ScreenGui
+local player = game.Players.LocalPlayer
+local screenGui = Instance.new("ScreenGui")
+screenGui.Parent = player:WaitForChild("PlayerGui")
+
+-- Create the TextBox (for key input)
+local textBox = Instance.new("TextBox")
+textBox.Parent = screenGui
+textBox.Position = UDim2.new(0.5, -150, 0.5, -25)
+textBox.Size = UDim2.new(0, 300, 0, 50)
+textBox.Text = ""
+textBox.PlaceholderText = "Enter the key..."
+textBox.TextScaled = true
+textBox.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+textBox.TextColor3 = Color3.fromRGB(0, 0, 0)
+
+-- Create the TextButton (to confirm input)
+local textButton = Instance.new("TextButton")
+textButton.Parent = screenGui
+textButton.Position = UDim2.new(0.5, -150, 0.6, 0)
+textButton.Size = UDim2.new(0, 300, 0, 50)
+textButton.Text = "Submit"
+textButton.TextScaled = true
+textButton.BackgroundColor3 = Color3.fromRGB(0, 255, 0)
+textButton.TextColor3 = Color3.fromRGB(255, 255, 255)
+
+-- Create the TextLabel (for messages)
+local textLabel = Instance.new("TextLabel")
+textLabel.Parent = screenGui
+textLabel.Position = UDim2.new(0.5, -150, 0.7, 0)
+textLabel.Size = UDim2.new(0, 300, 0, 50)
+textLabel.Text = ""
+textLabel.TextScaled = true
+textLabel.BackgroundTransparency = 1
+textLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
+
+-- The correct key for speed boost
+local correctKey = "roblox"
+local humanoid = player.Character and player.Character:WaitForChild("Humanoid") or nil
+
+-- Function to handle speed boost logic
+local function giveSpeedBoost()
+    if humanoid and textBox.Text:lower() == correctKey:lower() then
+        -- Speed boost
+        humanoid.WalkSpeed = 50
+        textLabel.Text = "Speed boost activated!"
+        textLabel.TextColor3 = Color3.fromRGB(0, 255, 0)  -- Green text
+    else
+        -- Incorrect key
+        textLabel.Text = "Incorrect key. Try again."
+        textLabel.TextColor3 = Color3.fromRGB(255, 0, 0)  -- Red text
+    end
+end
+
+-- Connect the button click to the function
+textButton.MouseButton1Click:Connect(giveSpeedBoost)
+
+-- En-- Create the ScreenGui
+local player = game.Players.LocalPlayer
+local screenGui = Instance.new("ScreenGui")
+screenGui.Parent = player:WaitForChild("PlayerGui")
+
+-- Create the TextBox (for key input)
+local textBox = Instance.new("TextBox")
+textBox.Parent = screenGui
+textBox.Position = UDim2.new(0.5, -150, 0.5, -25)
+textBox.Size = UDim2.new(0, 300, 0, 50)
+textBox.Text = ""
+textBox.PlaceholderText = "Enter the key..."
+textBox.TextScaled = true
+textBox.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+textBox.TextColor3 = Color3.fromRGB(0, 0, 0)
+
+-- Create the TextButton (to confirm input)
+local textButton = Instance.new("TextButton")
+textButton.Parent = screenGui
+textButton.Position = UDim2.new(0.5, -150, 0.6, 0)
+textButton.Size = UDim2.new(0, 300, 0, 50)
+textButton.Text = "Submit"
+textButton.TextScaled = true
+textButton.BackgroundColor3 = Color3.fromRGB(0, 255, 0)
+textButton.TextColor3 = Color3.fromRGB(255, 255, 255)
+
+-- Create the TextLabel (for messages)
+local textLabel = Instance.new("TextLabel")
+textLabel.Parent = screenGui
+textLabel.Position = UDim2.new(0.5, -150, 0.7, 0)
+textLabel.Size = UDim2.new(0, 300, 0, 50)
+textLabel.Text = ""
+textLabel.TextScaled = true
+textLabel.BackgroundTransparency = 1
+textLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
+
+-- The correct key for speed boost
+local correctKey = "roblox"
+local humanoid = player.Character and player.Character:WaitForChild("Humanoid") or nil
+
+-- Function to handle speed boost logic
+local function giveSpeedBoost()
+    if humanoid and textBox.Text:lower() == correctKey:lower() then
+        -- Speed boost
+        humanoid.WalkSpeed = 50
+        textLabel.Text = "Speed boost activated!"
+        textLabel.TextColor3 = Color3.fromRGB(0, 255, 0)  -- Green text
+    else
+        -- Incorrect key
+        textLabel.Text = "Incorrect key. Try again."
+        textLabel.TextColor3 = Color3.fromRGB(255, 0, 0)  -- Red text
+    end
+end
+
+-- Connect the button click to the function
+textButton.MouseButton1Click:Connect(giveSpeedBoost)
+
+-- Ensure the humanoid is available even if the player respawns
+player.CharacterAdded:Connect(function(character)
+    humanoid = character:WaitForChild("Humanoid")
+end)sure the humanoid is available even if the player respawns
+player.CharacterAdded:Connect(function(character)
+    humanoid = character:WaitForChild("Humanoid")
+end)
